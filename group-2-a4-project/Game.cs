@@ -18,7 +18,7 @@ namespace Game10003
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(600, 600);
         }
 
         /// <summary>
