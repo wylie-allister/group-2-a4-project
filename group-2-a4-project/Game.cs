@@ -12,6 +12,11 @@ namespace Game10003
     {
         // Place your variables here:
 
+        Vector2 playerPosition = new Vector2(150, 300);
+        Vector2 PlayerSize = new Vector2(20, 20);
+
+        
+
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -26,6 +31,8 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            Draw.FillColor = Color.White;
+            Draw.Rectangle(playerPosition, PlayerSize);
 
         }
     }
