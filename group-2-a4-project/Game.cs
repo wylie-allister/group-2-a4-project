@@ -11,7 +11,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-
+        PlayerInput playerInput = new PlayerInput();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -27,6 +27,7 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            playerInput.MovePlayer(); 
             Window.ClearBackground(Color.OffWhite); 
         }
     }
