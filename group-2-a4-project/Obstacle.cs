@@ -11,7 +11,7 @@ public class Obstacle
 
     public Obstacle()
     {
-        //obstaclePosition.Y = 300;
+        //obstacle variables
         obstacleSize = new Vector2(100, 50);
         obstaclePosition.Y = Random.Float(0, 600);
     }

@@ -27,5 +27,6 @@ public class PlayerCollision
         //if (bottomOfWindow)
         //{
         //playerPosition.Y = 600;
+        //}
    }
 }
