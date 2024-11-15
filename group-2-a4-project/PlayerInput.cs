@@ -15,10 +15,10 @@ namespace Game10003
 
         public void MovePlayer()
         {
-            // Setup Gravity 
-            Vector2 gravity = new Vector2(0, 10);
+            // Setup Player Gravity 
+            Vector2 gravity = new Vector2(0, 50);
    
-            // Invert Gravity Input 
+            // Input for Downward Gravity
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Down))
             {
                 if (isGravityInverted == true)
@@ -27,6 +27,7 @@ namespace Game10003
                 }
             }
 
+            // Input for Upward Gravity
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Up))
             {
                 if (isGravityInverted == false)
@@ -35,8 +36,7 @@ namespace Game10003
                 }
             }
 
-            Console.Write(isGravityInverted); 
-
+            // Gravity Mechanics 
             if (isGravityInverted == false)
             {
                 // Gravity Pulling Down
@@ -52,17 +52,20 @@ namespace Game10003
             }
             
             
+            // Input for Moving Player Left
             if (Input.IsKeyboardKeyDown(KeyboardInput.Left))
             {
                 position.X -= speed * Time.DeltaTime;
             }
 
-            // Move Player Right 
+            // Input for Moving Player Right 
             if (Input.IsKeyboardKeyDown(KeyboardInput.Right))
             {
                 position.X += speed * Time.DeltaTime;
             }
         }
+
+        // Input Test Stuff
 
         public void DrawPlayer()
         {
@@ -82,14 +85,22 @@ namespace Game10003
             bool isTouchingRight = playerRight >= Window.Width;
             bool isTouchingBottom = playerBottom >= Window.Height;
 
-            if (isTouchingTop || isTouchingBottom)
+            if (isTouchingBottom)
             {
-                velocity.Y = -velocity.Y;
+                velocity.Y = 0;
+                position.Y = Window.Height - size.Y; 
+            }
+
+            if (isTouchingTop)
+            {
+                velocity.Y = 0;
+                position.Y = 0;
             }
 
             if (isTouchingLeft || isTouchingRight)
             {
-                velocity.X = -velocity.X;
+                velocity.X = 0;
+                position.X = 0 + size.X;
             }
         }
     }
