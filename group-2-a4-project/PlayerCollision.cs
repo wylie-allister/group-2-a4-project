@@ -18,9 +18,14 @@ public class PlayerCollision
         // bool topOfWindow = playerTopEdge <= 0;
         // bool bottomOfWindow = playerBottomEdge >= Window.Height;
 
-        //if (topOfWindow || bottomOfWindow)
+        //if (topOfWindow)
         //{ 
         //Insert definitions for what happens here (most likely --health or kill screen, that's not on me though)
+        //playerPosition.Y = 0;
         //}
+
+        //if (bottomOfWindow)
+        //{
+        //playerPosition.Y = 600;
    }
 }

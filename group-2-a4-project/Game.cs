@@ -11,7 +11,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        Obstacle obstacle;
+        Obstacle[] obstacles = new Obstacle[3];
         PlayerCollision playerCollision;
         
 
@@ -21,9 +21,12 @@ namespace Game10003
         public void Setup()
         {
             Window.SetSize(600, 600);
-            Window.SetTitle("test");
-            //adds new obstacle class (could turn into an array for extra difficulty?)
-            obstacle = new Obstacle();
+            //adds new obstacles
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                Obstacle obstacle = new Obstacle();
+                obstacles[i] = obstacle;
+            }
             playerCollision = new PlayerCollision();
         }
 
@@ -34,9 +37,13 @@ namespace Game10003
         {
             Window.ClearBackground(Color.White);
             //draws obstacle, adds wall collision, and updates position
-            obstacle.DrawObstacle();
-            obstacle.ObstacleWallCollision();
-            obstacle.UpdatePosition();
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                obstacles[i].DrawObstacle();
+                obstacles[i].ObstacleWallCollision();
+                obstacles[i].UpdatePosition();
+            }
+
 
 
         }
