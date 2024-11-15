@@ -8,7 +8,6 @@ public class Obstacle
     Vector2 obstaclePosition = new Vector2 (600, 300);
     Vector2 obstacleSize;
     float speed = 300;
-
     public Obstacle()
     {
         //obstacle variables

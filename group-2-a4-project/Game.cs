@@ -14,7 +14,6 @@ namespace Game10003
         Obstacle[] obstacles = new Obstacle[3];
         PlayerCollision playerCollision;
         
-
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -35,7 +34,6 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.White);
             //draws obstacle, adds wall collision, and updates position
             for (int i = 0; i < obstacles.Length; i++)
             {
@@ -43,9 +41,6 @@ namespace Game10003
                 obstacles[i].ObstacleWallCollision();
                 obstacles[i].UpdatePosition();
             }
-
-
-
         }
     }
 }
