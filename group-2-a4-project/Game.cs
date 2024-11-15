@@ -11,7 +11,8 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-
+        Obstacle obstacle;
+        
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -19,6 +20,8 @@ namespace Game10003
         public void Setup()
         {
             Window.SetSize(600, 600);
+            Window.SetTitle("test");
+            obstacle = new Obstacle();
         }
 
         /// <summary>
@@ -26,7 +29,9 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-
+            Window.ClearBackground(Color.White);
+            obstacle.DrawObstacle();
+            obstacle.UpdatePosition();
         }
     }
 }
