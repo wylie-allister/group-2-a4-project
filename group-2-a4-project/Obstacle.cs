@@ -26,7 +26,7 @@ public class Obstacle
         Draw.FillColor = Color.Red;
         Draw.Rectangle(obstaclePosition, obstacleSize);
     }
-
+    //obstacle collision, add player class in there \/\/\/
     public void ObstacleCollision()
     {
         //Import player later

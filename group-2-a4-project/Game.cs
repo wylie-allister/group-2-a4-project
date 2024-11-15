@@ -30,6 +30,7 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Color.White);
+            //draws obstacle and updates position
             obstacle.DrawObstacle();
             obstacle.UpdatePosition();
         }

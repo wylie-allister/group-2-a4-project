@@ -21,9 +21,4 @@ public class PlayerCollision
         //Insert definitions for what happens here (most likely --health or kill screen, that's not on me though)
         
    }
-
-   public void ObstacleCollision()
-   {
-        //it is 11pm and i do not have the mental fortitude to continue working on this right now, i was supposed to have a nice relaxing wednesday ;-;
-   }
 }
