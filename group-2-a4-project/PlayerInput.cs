@@ -8,6 +8,7 @@ namespace Game10003
         public Vector2 position;
         public Vector2 velocity;
         public float speed;
+        bool isGravityInverted = false;
 
         // Test Player
         public Vector2 size;
@@ -16,46 +17,50 @@ namespace Game10003
         {
             // Setup Gravity 
             Vector2 gravity = new Vector2(0, 10);
-            bool isGravityInverted = false;
-
+   
             // Invert Gravity Input 
-            if (Input.IsKeyboardKeyPressed(KeyboardInput.Space))
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Down))
             {
-               if (isGravityInverted)
+                if (isGravityInverted == true)
                 {
-                    isGravityInverted = false; 
+                    isGravityInverted = false;
                 }
-               else
+            }
+
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Up))
+            {
+                if (isGravityInverted == false)
                 {
                     isGravityInverted = true;
                 }
             }
 
-            // Current Gravity State 
+            Console.Write(isGravityInverted); 
+
             if (isGravityInverted == false)
             {
                 // Gravity Pulling Down
                 velocity += gravity * Time.DeltaTime;
                 position += velocity;
             }
-            if (isGravityInverted)
-            {
-                // Gravity Pulling Up 
-                velocity -= gravity * Time.DeltaTime;
-                position -= velocity;
-            }
 
-            Console.WriteLine(isGravityInverted);
-            // Move Player Left 
+            if (isGravityInverted == true)
+            {
+                // Gravity Pulling Up
+                velocity -= gravity * Time.DeltaTime;
+                position += velocity;
+            }
+            
+            
             if (Input.IsKeyboardKeyDown(KeyboardInput.Left))
             {
                 position.X -= speed * Time.DeltaTime;
             }
 
             // Move Player Right 
-            if (Input.IsKeyboardKeyDown (KeyboardInput.Right))
+            if (Input.IsKeyboardKeyDown(KeyboardInput.Right))
             {
-                position.X += speed * Time.DeltaTime;   
+                position.X += speed * Time.DeltaTime;
             }
         }
 
@@ -76,6 +81,16 @@ namespace Game10003
             bool isTouchingLeft = playerLeft <= 0;
             bool isTouchingRight = playerRight >= Window.Width;
             bool isTouchingBottom = playerBottom >= Window.Height;
+
+            if (isTouchingTop || isTouchingBottom)
+            {
+                velocity.Y = -velocity.Y;
+            }
+
+            if (isTouchingLeft || isTouchingRight)
+            {
+                velocity.X = -velocity.X;
+            }
         }
     }
 }

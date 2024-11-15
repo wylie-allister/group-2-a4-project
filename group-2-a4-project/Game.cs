@@ -22,7 +22,7 @@ namespace Game10003
             Window.SetTitle("test");
 
             playerInput.position.X = Window.Width / 2;
-            playerInput.position.Y = Window.Height / 2;
+            playerInput.position.Y = Window.Height - 100;
             playerInput.size = Vector2.One * 50;
             playerInput.speed = 500; 
         }
