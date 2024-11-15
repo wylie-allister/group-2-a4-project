@@ -27,30 +27,47 @@ public class Obstacle
         Draw.Rectangle(obstaclePosition, obstacleSize);
     }
     //obstacle collision, add player class in there \/\/\/
-    public void ObstacleCollision()
+    public void ObstaclePlayerCollision()
     {
         //Import player later
-        float playerLeftEdge = playerPosition.X;
-        float playerRightEdge = playerPosition.X + playerSize.X;
-        float playerTopEdge = playerPosition.Y;
-        float playerBottomEdge = playerPosition.Y + playerSize.Y;
+       // float playerLeftEdge = playerPosition.X;
+       // float playerRightEdge = playerPosition.X + playerSize.X;
+       // float playerTopEdge = playerPosition.Y;
+       // float playerBottomEdge = playerPosition.Y + playerSize.Y;
 
         float obstacleLeftEdge = obstaclePosition.X;
         float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
         float obstacleTopEdge = obstaclePosition.Y;
         float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
 
-        bool doesOverlapLeft = playerLeftEdge < obstacleRightEdge;
-        bool doesOverlapRight = playerRightEdge < obstacleLeftEdge;
-        bool doesOverlapTop = playerTopEdge < obstacleBottomEdge;
-        bool doesOverlapBottom = playerBottomEdge > obstacleTopEdge;
+       // bool doesOverlapLeft = playerLeftEdge < obstacleRightEdge;
+       // bool doesOverlapRight = playerRightEdge < obstacleLeftEdge;
+       // bool doesOverlapTop = playerTopEdge < obstacleBottomEdge;
+       // bool doesOverlapBottom = playerBottomEdge > obstacleTopEdge;
 
-        bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
+       // bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
 
-        if (doesOverlap = true)
+       // if (doesOverlap = true)
         {
             //insert --score or kill screen here, not my job though so idk
             Console.WriteLine("ping");
+        }
+    }
+
+    public void ObstacleWallCollision()
+    {
+        float obstacleLeftEdge = obstaclePosition.X;
+        float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
+        float obstacleTopEdge = obstaclePosition.Y;
+        float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
+
+        bool leftOfWindow = obstacleLeftEdge <= 0 - obstacleSize.X;
+
+        if (leftOfWindow == true)
+        {
+            obstaclePosition.X = Random.Float(1000, 1500);
+            obstaclePosition.Y = Random.Float(0, 600);
+            
         }
     }
 }

@@ -32,7 +32,11 @@ namespace Game10003
             Window.ClearBackground(Color.White);
             //draws obstacle and updates position
             obstacle.DrawObstacle();
+
+            obstacle.ObstacleWallCollision();
             obstacle.UpdatePosition();
+
+
         }
     }
 }
