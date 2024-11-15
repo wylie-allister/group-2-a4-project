@@ -7,12 +7,13 @@ public class Obstacle
 {
     Vector2 obstaclePosition = new Vector2 (600, 300);
     Vector2 obstacleSize;
-    float speed = 200;
+    float speed = 300;
 
     public Obstacle()
     {
         //obstaclePosition.Y = 300;
         obstacleSize = new Vector2(100, 50);
+        obstaclePosition.Y = Random.Float(0, 600);
     }
 
     public void UpdatePosition()
@@ -56,18 +57,16 @@ public class Obstacle
 
     public void ObstacleWallCollision()
     {
+        //resets block once it hits the wall (could potentially track score using this?)
         float obstacleLeftEdge = obstaclePosition.X;
-        float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
-        float obstacleTopEdge = obstaclePosition.Y;
-        float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
 
         bool leftOfWindow = obstacleLeftEdge <= 0 - obstacleSize.X;
 
         if (leftOfWindow == true)
         {
+            //resets to a random position once it passes the wall
             obstaclePosition.X = Random.Float(1000, 1500);
-            obstaclePosition.Y = Random.Float(0, 600);
-            
+            obstaclePosition.Y = Random.Float(0, 600);       
         }
     }
 }

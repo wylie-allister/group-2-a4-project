@@ -12,6 +12,7 @@ namespace Game10003
     {
         // Place your variables here:
         Obstacle obstacle;
+        PlayerCollision playerCollision;
         
 
         /// <summary>
@@ -21,7 +22,9 @@ namespace Game10003
         {
             Window.SetSize(600, 600);
             Window.SetTitle("test");
+            //adds new obstacle class (could turn into an array for extra difficulty?)
             obstacle = new Obstacle();
+            playerCollision = new PlayerCollision();
         }
 
         /// <summary>
@@ -30,9 +33,8 @@ namespace Game10003
         public void Update()
         {
             Window.ClearBackground(Color.White);
-            //draws obstacle and updates position
+            //draws obstacle, adds wall collision, and updates position
             obstacle.DrawObstacle();
-
             obstacle.ObstacleWallCollision();
             obstacle.UpdatePosition();
 
