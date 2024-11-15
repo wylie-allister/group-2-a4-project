@@ -7,7 +7,10 @@ namespace Game10003
     {
         public Vector2 position;
         public Vector2 velocity;
-        public float speed; 
+        public float speed;
+
+        // Test Player
+        public Vector2 size;
 
         public void MovePlayer()
         {
@@ -33,14 +36,16 @@ namespace Game10003
             {
                 // Gravity Pulling Down
                 velocity += gravity * Time.DeltaTime;
+                position += velocity;
             }
             if (isGravityInverted)
             {
                 // Gravity Pulling Up 
                 velocity -= gravity * Time.DeltaTime;
+                position -= velocity;
             }
-            position += velocity; 
 
+            Console.WriteLine(isGravityInverted);
             // Move Player Left 
             if (Input.IsKeyboardKeyDown(KeyboardInput.Left))
             {
@@ -52,6 +57,25 @@ namespace Game10003
             {
                 position.X += speed * Time.DeltaTime;   
             }
+        }
+
+        public void DrawPlayer()
+        {
+            // Test Player
+            Draw.Rectangle(position, size);
+        }
+
+        public void ConstraintoWindow()
+        {
+            float playerLeft = position.X;
+            float playerRight = position.X + size.X;
+            float playerTop = position.Y;
+            float playerBottom = position.Y + size.Y;
+
+            bool isTouchingTop = playerTop <= 0;
+            bool isTouchingLeft = playerLeft <= 0;
+            bool isTouchingRight = playerRight >= Window.Width;
+            bool isTouchingBottom = playerBottom >= Window.Height;
         }
     }
 }

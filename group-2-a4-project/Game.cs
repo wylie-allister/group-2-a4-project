@@ -19,7 +19,12 @@ namespace Game10003
         public void Setup()
         {
             Window.SetSize(600, 600);
-            Window.SetTitle("test"); 
+            Window.SetTitle("test");
+
+            playerInput.position.X = Window.Width / 2;
+            playerInput.position.Y = Window.Height / 2;
+            playerInput.size = Vector2.One * 50;
+            playerInput.speed = 500; 
         }
 
         /// <summary>
@@ -27,7 +32,9 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            playerInput.MovePlayer(); 
+            playerInput.MovePlayer();
+            playerInput.ConstraintoWindow(); 
+            playerInput.DrawPlayer();
             Window.ClearBackground(Color.OffWhite); 
         }
     }
