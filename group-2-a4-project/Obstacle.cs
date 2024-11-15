@@ -29,6 +29,15 @@ public class Obstacle
 
     public void ObstacleCollision()
     {
+        //Import player later
+        //float playerLeftEdge = playerPosition.X;
+        // float playerRightEdge = playerPosition.X + playerSize.X;
+        // float playerTopEdge = playerPosition.Y;
+        // float playerBottomEdge = playerPosition.Y + playerSize.Y;
 
+        float obstacleLeftEdge = obstaclePosition.X;
+        float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
+        float obstacleTopEdge = obstaclePosition.Y;
+        float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
     }
 }
