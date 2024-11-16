@@ -5,6 +5,6 @@ namespace Game10003
 {
     class Score
     {
-
+        
     }
 }
