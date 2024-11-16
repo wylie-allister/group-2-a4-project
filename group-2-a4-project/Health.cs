@@ -14,14 +14,14 @@ namespace Game10003
             maxHealth = 5;
             ResetHealth();
         }
-
+        //Reducing the player's health
         public void ReduceHealth()
         {
             currentHealth -= 1;
             Console.WriteLine(currentHealth);
         }
 
-        //Increasing the health
+        //Increasing the player's health
         public void IncreaseHealth()
         {
             currentHealth += 1;
