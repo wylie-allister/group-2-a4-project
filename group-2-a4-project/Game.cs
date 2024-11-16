@@ -13,7 +13,9 @@ namespace Game10003
         // Place your variables here:
         Obstacle[] obstacles = new Obstacle[3];
         PlayerCollision playerCollision;
-        
+        Health health;
+        Score score;
+
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -27,6 +29,12 @@ namespace Game10003
                 obstacles[i] = obstacle;
             }
             playerCollision = new PlayerCollision();
+            
+            //Initializing the Health and Score scripts
+            health = new Health();
+            score = new Score();
+            health.Setup();
+            score.Setup();
         }
 
         /// <summary>

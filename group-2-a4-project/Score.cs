@@ -8,7 +8,7 @@ namespace Game10003
         int currentScore;
 
 
-        void Setup()
+        public void Setup()
         {
             ResetScore();
         }
