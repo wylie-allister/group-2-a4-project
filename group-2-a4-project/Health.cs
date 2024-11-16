@@ -11,24 +11,27 @@ namespace Game10003
         //Determining max health
         public void Setup()
         {
-            
+            maxHealth = 5;
+            ResetHealth();
         }
 
         public void ReduceHealth()
         {
-          
+            currentHealth -= 1;
+            Console.WriteLine(currentHealth);
         }
 
         //Increasing the health
         public void IncreaseHealth()
         {
-         
+            currentHealth += 1;
+            Console.WriteLine(currentHealth);
         }
 
         //Resetting the health
         void ResetHealth()
         {
-            
+            currentHealth = maxHealth;
         }
     }
 }
