@@ -12,17 +12,30 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
-        GameAudio test = new GameAudio();
+        Obstacle[] obstacles = new Obstacle[3];
+        PlayerCollision playerCollision;
+        Health health;
+        Score score;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-            Window.SetTitle("test");
-            Window.SetSize(400, 400);
-            test.LoadAllAudio();
-            test.PlayMusic();
+            Window.SetSize(600, 600);
+            //adds new obstacles
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                Obstacle obstacle = new Obstacle();
+                obstacles[i] = obstacle;
+            }
+            playerCollision = new PlayerCollision();
+            
+            //Initializing the Health and Score scripts
+            health = new Health();
+            score = new Score();
+            health.Setup();
+            score.Setup();
         }
 
         /// <summary>
@@ -30,14 +43,12 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            if (Input.IsKeyboardKeyPressed(KeyboardInput.G))
+            //draws obstacle, adds wall collision, and updates position
+            for (int i = 0; i < obstacles.Length; i++)
             {
-                test.PlayGravity();
-            }
-
-            if (Input.IsKeyboardKeyPressed(KeyboardInput.B))
-            {
-                test.PlayBoom();
+                obstacles[i].DrawObstacle();
+                obstacles[i].ObstacleWallCollision();
+                obstacles[i].UpdatePosition();
             }
         }
     }
