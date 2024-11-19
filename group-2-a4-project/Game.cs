@@ -12,6 +12,7 @@ namespace Game10003
     public class Game
     {
         // Place your variables here:
+        PlayerInput playerInput = new PlayerInput();
         Obstacle[] obstacles = new Obstacle[3];
         PlayerCollision playerCollision;
         Health health;
@@ -41,6 +42,11 @@ namespace Game10003
             //Initializing the audio
             audio = new GameAudio();
             audio.LoadAllAudio();
+
+            // Setup player speed and starting position
+            playerInput.position.X = Window.Width / 2;
+            playerInput.position.Y = Window.Height - 100;
+            playerInput.speed = 500;
         }
 
         /// <summary>
@@ -55,6 +61,9 @@ namespace Game10003
                 obstacles[i].ObstacleWallCollision();
                 obstacles[i].UpdatePosition();
             }
+
+            // Class for player input
+            playerInput.Input();
         }
     }
 }
