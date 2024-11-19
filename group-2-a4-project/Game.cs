@@ -12,15 +12,35 @@ namespace Game10003
     {
         // Place your variables here:
         PlayerInput playerInput = new PlayerInput();
+        Obstacle[] obstacles = new Obstacle[3];
+        PlayerCollision playerCollision;
+        Health health;
+        Score score;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
+            Window.SetSize(600, 600);
+            //adds new obstacles
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                Obstacle obstacle = new Obstacle();
+                obstacles[i] = obstacle;
+            }
+            playerCollision = new PlayerCollision();
+            
+            //Initializing the Health and Score scripts
+            health = new Health();
+            score = new Score();
+            health.Setup();
+            score.Setup();
+
+            // Setup player speed and starting position
             playerInput.position.X = Window.Width / 2;
             playerInput.position.Y = Window.Height - 100;
-            playerInput.speed = 500; 
+            playerInput.speed = 500;
         }
 
         /// <summary>
@@ -28,6 +48,15 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            //draws obstacle, adds wall collision, and updates position
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                obstacles[i].DrawObstacle();
+                obstacles[i].ObstacleWallCollision();
+                obstacles[i].UpdatePosition();
+            }
+
+            // Class for player input
             playerInput.Input();
         }
     }
