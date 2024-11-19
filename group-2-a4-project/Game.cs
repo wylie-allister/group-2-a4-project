@@ -16,6 +16,7 @@ namespace Game10003
         PlayerCollision playerCollision;
         Health health;
         Score score;
+        GameAudio audio;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -36,6 +37,10 @@ namespace Game10003
             score = new Score();
             health.Setup();
             score.Setup();
+
+            //Initializing the audio
+            audio = new GameAudio();
+            audio.LoadAllAudio();
         }
 
         /// <summary>
