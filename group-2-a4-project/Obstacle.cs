@@ -8,6 +8,7 @@ public class Obstacle
     Vector2 obstaclePosition = new Vector2 (600, 300);
     Vector2 obstacleSize;
     float speed = 300;
+
     public Obstacle()
     {
         //obstacle variables
@@ -27,7 +28,7 @@ public class Obstacle
         Draw.Rectangle(obstaclePosition, obstacleSize);
     }
     //obstacle collision, add player class in there \/\/\/
-    public void ObstaclePlayerCollision()
+    public void ObstaclePlayerCollision(Vector2 playerPosition, Vector2 playerSize)
     {
         //Import player later
        float playerLeftEdge = playerPosition.X;
@@ -35,10 +36,10 @@ public class Obstacle
        float playerTopEdge = playerPosition.Y;
        float playerBottomEdge = playerPosition.Y + playerSize.Y;
 
-        float obstacleLeftEdge = obstaclePosition.X;
-        float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
-        float obstacleTopEdge = obstaclePosition.Y;
-        float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
+       float obstacleLeftEdge = obstaclePosition.X;
+       float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
+       float obstacleTopEdge = obstaclePosition.Y;
+       float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
 
        bool doesOverlapLeft = playerLeftEdge < obstacleRightEdge;
        bool doesOverlapRight = playerRightEdge < obstacleLeftEdge;
@@ -47,7 +48,7 @@ public class Obstacle
 
        bool doesOverlap = doesOverlapLeft && doesOverlapRight && doesOverlapTop && doesOverlapBottom;
 
-       if (doesOverlap = true)
+       if (doesOverlap == true)
         {
             //insert --score or kill screen here, not my job though so idk
             Console.WriteLine("ping");

@@ -5,6 +5,9 @@ namespace Game10003;
 
 public class PlayerCollision
 {
+    Vector2 playerPosition;
+    Vector2 playerSize;
+
     public void Wall()
     {
         //Creates wall collision, i do not have a player class yet
