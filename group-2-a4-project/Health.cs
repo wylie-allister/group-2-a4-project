@@ -37,7 +37,7 @@ namespace Game10003
         //Visually displaying the players health onto the screen
         public void ShowUI()
         {
-            Text.Color = Color.Red;
+            Text.Color = Color.Yellow;
             Text.Draw("Health:" + currentHealth, 50,50);
         }
     }

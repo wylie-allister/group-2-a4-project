@@ -65,6 +65,9 @@ namespace Game10003
 
             //Displays player health onto the screen
             health.ShowUI();
+
+            //Displays player score onto the screen
+            score.ShowUI();
             
 
             

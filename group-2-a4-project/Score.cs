@@ -30,5 +30,11 @@ namespace Game10003
         {
             currentScore = 0;
         }
+
+        public void ShowUI()
+        {
+            Text.Color = Color.Yellow;
+            Text.Draw("Score:" + currentScore, 450, 50);
+        }
     }
 }
