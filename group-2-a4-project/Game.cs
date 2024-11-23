@@ -18,6 +18,7 @@ namespace Game10003
         Health health;
         Score score;
         GameAudio audio;
+        
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -61,6 +62,12 @@ namespace Game10003
                 obstacles[i].ObstacleWallCollision();
                 obstacles[i].UpdatePosition();
             }
+
+            //Displays player health onto the screen
+            health.ShowUI();
+            
+
+            
 
             // Class for player input
             playerInput.Input();
