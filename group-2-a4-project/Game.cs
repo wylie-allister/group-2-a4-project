@@ -43,6 +43,7 @@ namespace Game10003
             //Initializing the audio
             audio = new GameAudio();
             audio.LoadAllAudio();
+            audio.PlayMusic();
 
             // Setup player speed and starting position
             playerInput.position.X = Window.Width / 2;
@@ -55,11 +56,12 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.White);
             //draws obstacle, adds wall collision, and updates position
             for (int i = 0; i < obstacles.Length; i++)
             {
                 obstacles[i].DrawObstacle();
-                obstacles[i].ObstacleWallCollision();
+                obstacles[i].ObstacleWallCollision(score, audio);
                 obstacles[i].UpdatePosition();
             }
 
@@ -68,9 +70,6 @@ namespace Game10003
 
             //Displays player score onto the screen
             score.ShowUI();
-            
-
-            
 
             // Class for player input
             playerInput.Input();

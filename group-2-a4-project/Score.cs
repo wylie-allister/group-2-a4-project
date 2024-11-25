@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Game10003
 {
-    class Score
+    public class Score
     {
         int currentScore;
 

@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Game10003
 {
-    class Health
+    public class Health
     {
         int maxHealth;
         int currentHealth;
