@@ -50,8 +50,10 @@ public class Obstacle
 
        if (doesOverlap == true)
         {
+            //reduces health, plays a boom sound, and resets the block back to starting position so it doesn't trip the point counter
             health.ReduceHealth();
             audio.PlayBoom();
+            obstaclePosition.X = Random.Float(1000, 1500);
         }
     }
 
@@ -67,6 +69,7 @@ public class Obstacle
             //resets to a random position once it passes the wall
             obstaclePosition.X = Random.Float(1000, 1500);
             obstaclePosition.Y = Random.Float(0, 600);
+            //increases score and plays a blip noise when obstacle passes the player
             score.IncreaseScore();
             audio.PlayGravity();
         }

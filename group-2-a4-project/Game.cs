@@ -56,7 +56,7 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
-            Window.ClearBackground(Color.White);
+            Window.ClearBackground(Color.Black);
             //draws obstacle, adds wall collision, and updates position
             for (int i = 0; i < obstacles.Length; i++)
             {
