@@ -10,13 +10,6 @@ namespace Game10003
     /// </summary>
     public class Game
     {
-        // Player size and starting position 
-
-        Vector2 playerPosition = new Vector2(150, 300);
-        Vector2 PlayerSize = new Vector2(20, 20);
-
-
-
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -33,8 +26,6 @@ namespace Game10003
         /// Colour of the player character.
         public void Update()
         {
-            Draw.FillColor = Color.White;
-            Draw.Rectangle(playerPosition, PlayerSize);
 
         }
     }
