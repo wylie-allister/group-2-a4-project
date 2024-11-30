@@ -28,7 +28,7 @@ public class Obstacle
         Draw.Rectangle(obstaclePosition, obstacleSize);
     }
     //obstacle collision, add player class in there \/\/\/
-    public void ObstaclePlayerCollision(Vector2 playerPosition, Vector2 playerSize)
+    public void ObstaclePlayerCollision(Vector2 playerPosition, Vector2 playerSize, Health health, GameAudio audio)
     {
         //Import player later
        float playerLeftEdge = playerPosition.X;
@@ -50,12 +50,14 @@ public class Obstacle
 
        if (doesOverlap == true)
         {
-            //insert --score or kill screen here, not my job though so idk
-            Console.WriteLine("ping");
+            //reduces health, plays a boom sound, and resets the block back to starting position so it doesn't trip the point counter
+            health.ReduceHealth();
+            audio.PlayBoom();
+            obstaclePosition.X = Random.Float(1000, 1500);
         }
     }
 
-    public void ObstacleWallCollision()
+    public void ObstacleWallCollision(Score score, GameAudio audio)
     {
         //resets block once it hits the wall (could potentially track score using this?)
         float obstacleLeftEdge = obstaclePosition.X;
@@ -66,7 +68,10 @@ public class Obstacle
         {
             //resets to a random position once it passes the wall
             obstaclePosition.X = Random.Float(1000, 1500);
-            obstaclePosition.Y = Random.Float(0, 600);       
+            obstaclePosition.Y = Random.Float(0, 600);
+            //increases score and plays a blip noise when obstacle passes the player
+            score.IncreaseScore();
+            audio.PlayGravity();
         }
     }
 }
