@@ -7,6 +7,7 @@ namespace Game10003
     {
         int maxHealth;
         int currentHealth;
+        public bool gameOver;
 
         //Determining max health
         public void Setup()
@@ -19,7 +20,14 @@ namespace Game10003
         {
             currentHealth -= 1;
             Console.WriteLine(currentHealth);
+
+            if (currentHealth == 0)
+            {
+                gameOver = true;
+            }
         }
+
+        
 
         //Increasing the player's health by 1
         public void IncreaseHealth()
@@ -32,6 +40,8 @@ namespace Game10003
         void ResetHealth()
         {
             currentHealth = maxHealth;
+            
+            gameOver = false;
         }
 
         //Visually displaying the players health onto the screen

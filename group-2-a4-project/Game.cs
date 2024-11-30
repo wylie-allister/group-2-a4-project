@@ -18,6 +18,7 @@ namespace Game10003
         Health health;
         Score score;
         GameAudio audio;
+
         
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace Game10003
             score = new Score();
             health.Setup();
             score.Setup();
-
+            
             //Initializing the audio
             audio = new GameAudio();
             audio.LoadAllAudio();
@@ -48,6 +49,8 @@ namespace Game10003
             playerInput.position.X = Window.Width / 2;
             playerInput.position.Y = Window.Height - 100;
             playerInput.speed = 500;
+
+           
         }
 
         /// <summary>
@@ -55,6 +58,35 @@ namespace Game10003
         /// </summary>
         public void Update()
         {
+            //Checking if gameOver is true
+            if (health.gameOver == true)
+            {
+                Window.ClearBackground(Color.White);
+                
+                //Changing the text color to blue
+                Text.Color = Color.Blue;
+                
+                //Drawing and printing text to appear on the screen
+                Text.Draw("GAME OVER.", 300, 300);
+                Text.Draw("Press Enter to restart.", 170, 400);
+                
+                //Enter input to reset the game and space
+                if (Input.IsKeyboardKeyPressed(KeyboardInput.Enter))
+                {
+                    Setup();
+                }
+
+                return;
+            }
+            
+            //For debugging purposes only in reducing health manually
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.A))
+            {
+                health.ReduceHealth();
+            }
+
+            Window.ClearBackground(Color.Black);
+
             //draws obstacle, adds wall collision, and updates position
             for (int i = 0; i < obstacles.Length; i++)
             {
@@ -74,6 +106,9 @@ namespace Game10003
 
             // Class for player input
             playerInput.Input();
+
+          
+        
         }
     }
 }
