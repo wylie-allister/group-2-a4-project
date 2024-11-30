@@ -23,6 +23,7 @@ namespace Game10003
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
+        /// The window size
         public void Setup()
         {
             Window.SetSize(600, 600);
@@ -54,6 +55,7 @@ namespace Game10003
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
+        /// Colour of the player character.
         public void Update()
         {
             Window.ClearBackground(Color.Black);
