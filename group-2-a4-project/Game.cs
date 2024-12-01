@@ -109,7 +109,7 @@ namespace Game10003
             playerCollision.Wall(player, health);
 
             // Class for player input
-            playerInput.Input();
+            playerInput.Input(player);
 
             //Draw player to screen
             player.DrawPlayer();

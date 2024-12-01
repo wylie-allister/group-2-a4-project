@@ -10,10 +10,10 @@ namespace Game10003
         public float speed;
         bool isGravityInverted = false;
 
-        public void Input()
+        public void Input(Player player)
         {
             // Setup Player Gravity 
-            Vector2 gravity = new Vector2(0, 150);
+            Vector2 gravity = new Vector2(0, 400);
    
             // Input for Downward Gravity
             if (Game10003.Input.IsKeyboardKeyPressed(KeyboardInput.Down))
@@ -38,27 +38,27 @@ namespace Game10003
             {
                 // Gravity Pulling Down
                 velocity += gravity * Time.DeltaTime;
-                position += velocity;
+                player.playerPosition += velocity;
             }
 
             if (isGravityInverted == true)
             {
                 // Gravity Pulling Up
                 velocity -= gravity * Time.DeltaTime;
-                position += velocity;
+                player.playerPosition += velocity;
             }
             
             
             // Input for Moving Player Left
             if (Game10003.Input.IsKeyboardKeyDown(KeyboardInput.Left))
             {
-                position.X -= speed * Time.DeltaTime;
+                player.playerPosition.X -= speed * Time.DeltaTime;
             }
 
             // Input for Moving Player Right 
             if (Game10003.Input.IsKeyboardKeyDown(KeyboardInput.Right))
             {
-                position.X += speed * Time.DeltaTime;
+                player.playerPosition.X += speed * Time.DeltaTime;
             }
         }
     }

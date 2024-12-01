@@ -23,7 +23,7 @@ public class PlayerCollision
         if (topOfWindow)
         {
             //Resets player and gives them a game over if they hit top screen
-            playerPosition.Y = 0;
+            player.playerPosition.Y = 0;
             health.gameOver = true;
         }
         else
@@ -34,7 +34,7 @@ public class PlayerCollision
         if (bottomOfWindow)
         {
             //Resets player and gives them a game over if they hit bottom screen
-            playerPosition.Y = 600;
+            player.playerPosition.Y = 600;
             health.gameOver = true;
         }
         else
