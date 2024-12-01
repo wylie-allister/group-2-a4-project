@@ -8,7 +8,7 @@ public class PlayerCollision
     Vector2 playerPosition;
     Vector2 playerSize;
 
-    public void Wall()
+    public void Wall(Player player, Health health)
     {
         //Creates wall collision, i do not have a player class yet
         float playerLeftEdge = playerPosition.X;
@@ -22,13 +22,24 @@ public class PlayerCollision
 
         if (topOfWindow)
         {
-            //Insert definitions for what happens here (most likely --health or kill screen, that's not on me though)
+            //Resets player and gives them a game over if they hit top screen
             playerPosition.Y = 0;
+            health.gameOver = true;
+        }
+        else
+        {
+            health.gameOver = false;
         }
 
         if (bottomOfWindow)
         {
+            //Resets player and gives them a game over if they hit bottom screen
             playerPosition.Y = 600;
+            health.gameOver = true;
+        }
+        else
+        {
+            health.gameOver = false;
         }
     }
 }

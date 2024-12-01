@@ -27,14 +27,14 @@ public class Obstacle
         Draw.FillColor = Color.Red;
         Draw.Rectangle(obstaclePosition, obstacleSize);
     }
-    //obstacle collision, add player class in there \/\/\/
-    public void ObstaclePlayerCollision(Vector2 playerPosition, Vector2 playerSize, Health health, GameAudio audio)
+    //obstacle collision
+    public void ObstaclePlayerCollision(Player player, Health health, GameAudio audio)
     {
-        //Import player later
-       float playerLeftEdge = playerPosition.X;
-       float playerRightEdge = playerPosition.X + playerSize.X;
-       float playerTopEdge = playerPosition.Y;
-       float playerBottomEdge = playerPosition.Y + playerSize.Y;
+       
+       float playerLeftEdge = player.playerPosition.X;
+       float playerRightEdge = player.playerPosition.X + player.playerSize.X;
+       float playerTopEdge = player.playerPosition.Y;
+       float playerBottomEdge = player.playerPosition.Y + player.playerSize.Y;
 
        float obstacleLeftEdge = obstaclePosition.X;
        float obstacleRightEdge = obstaclePosition.X + obstacleSize.X;
@@ -42,7 +42,7 @@ public class Obstacle
        float obstacleBottomEdge = obstaclePosition.Y + obstacleSize.Y;
 
        bool doesOverlapLeft = playerLeftEdge < obstacleRightEdge;
-       bool doesOverlapRight = playerRightEdge < obstacleLeftEdge;
+       bool doesOverlapRight = playerRightEdge > obstacleLeftEdge;
        bool doesOverlapTop = playerTopEdge < obstacleBottomEdge;
        bool doesOverlapBottom = playerBottomEdge > obstacleTopEdge;
 

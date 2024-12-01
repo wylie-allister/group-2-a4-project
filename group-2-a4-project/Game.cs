@@ -18,7 +18,7 @@ namespace Game10003
         Health health;
         Score score;
         GameAudio audio;
-
+        Player player;
         
 
         /// <summary>
@@ -35,6 +35,7 @@ namespace Game10003
                 obstacles[i] = obstacle;
             }
             playerCollision = new PlayerCollision();
+            player = new Player();
             
             //Initializing the Health and Score scripts
             health = new Health();
@@ -52,7 +53,7 @@ namespace Game10003
             playerInput.position.Y = Window.Height - 100;
             playerInput.speed = 500;
 
-           
+
         }
 
         /// <summary>
@@ -95,6 +96,7 @@ namespace Game10003
                 obstacles[i].DrawObstacle();
                 obstacles[i].ObstacleWallCollision(score, audio);
                 obstacles[i].UpdatePosition();
+                obstacles[i].ObstaclePlayerCollision(player, health, audio);
             }
 
             //Displays player health onto the screen
@@ -103,9 +105,14 @@ namespace Game10003
             //Displays player score onto the screen
             score.ShowUI();
 
+            //Add collision to player 
+            playerCollision.Wall(player, health);
+
             // Class for player input
             playerInput.Input();
 
+            //Draw player to screen
+            player.DrawPlayer();
           
         
         }
